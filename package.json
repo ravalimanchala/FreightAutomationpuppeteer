@@ -1,0 +1,18 @@
+{
+  "name": "voltuswave-automation",
+  "version": "1.0.0",
+  "description": "Automation script for VoltusWave sign-in using Puppeteer",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "dotenv": "^16.4.5",
+    "mailslurp-client": "^15.14.2",
+    "puppeteer": "^21.11.0"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
