@@ -5,10 +5,10 @@ import signin from './login.js';
 // import clickSettingsIcon from './settingIcon.js';
 // import selectWorkspaceModule from './navigateWorkspace.js';
 // import clickCreateWorkspace from './workspaceCreation.js';
-//import navigateToHome from './homeNavigation.js';
+import navigateToHome from './homeNavigation.js';
 import workspaceSetting from './workspaceSetting.js';
 import navigateToSchema from './navigateSchema.js';
-//import schemaSet from './schemaSet.js';
+import schemaSet from './schemaSet.js';
 import schema from './schema.js';
 
 async function main() {
@@ -21,8 +21,9 @@ async function main() {
     // await navigateToHome(page);
     await workspaceSetting(page);
     await navigateToSchema(page);
-    //await schemaSet(page);
+    await schemaSet(page);
     await schema(page);
+    await navigateToHome(page);
   } catch (error) {
     console.error('Automation failed:', error);
   }
