@@ -20,7 +20,9 @@ async function workspaceSetting(page) {
 
     // Wait for menu options to appear
     await page.waitForSelector('.css-15dbdkh-eachMenuOption', { timeout: 30000 });
-    console.log('✅ Workspace navigation successful');
+    await page.click('.css-1hfz00f-treeMenuName');
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    console.log('Test Passed: Recent Workspace Selection');
 
   } catch (error) {
     console.error('Workspace navigation failed:', error.message);

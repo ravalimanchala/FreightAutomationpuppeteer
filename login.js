@@ -52,10 +52,10 @@ async function signin() {
       page.click('button[type="submit"]')
     ]);
     
-    console.log('✅ Cloud login successful');
+    console.log('Test Passed: Cloud Login');
 
     // Second login - april.voltuswave.com
-    await page.goto('https://april.voltuswave.com/', {
+    await page.goto('https://sac.voltuswave.com/', {
       waitUntil: ['networkidle0', 'domcontentloaded'],
       timeout: 60000
     });
@@ -73,7 +73,7 @@ async function signin() {
       page.click('button[type="submit"]')
     ]);
     
-    console.log('✅ April login successful');
+    console.log('Test Passed: Bile Login');
     return { browser, page };
   } catch (error) {
     console.error('Login failed:', error.message);

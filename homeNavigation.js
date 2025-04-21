@@ -18,6 +18,7 @@ async function navigateToHome(page) {
             await page.goto('https://april.voltuswave.com/home', {
                 waitUntil: 'networkidle0',
                 timeout: 60000
+                
             });
             console.log('✅ Navigated to home using URL');
             await new Promise(resolve => setTimeout(resolve, 2000));

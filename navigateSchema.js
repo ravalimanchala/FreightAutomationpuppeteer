@@ -14,10 +14,10 @@ async function navigateSchema(page) {
     });
     
     await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log('✅ Schema menu selected successfully');
+    console.log('Test Passed: Schema Menu Navigation');
 
   } catch (error) {
-    console.error('Failed to select Schema menu:', error.message);
+    console.error('Test Failed: Schema Menu Navigation -', error.message);
     throw error;
   }
 }

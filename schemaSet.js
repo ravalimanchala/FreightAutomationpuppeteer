@@ -2,6 +2,11 @@ import { faker } from '@faker-js/faker';
 
 async function schemaSet(page) {
   try {
+    // Generate initial faker name (not used)
+    const fakerName = faker.word.adjective().toLowerCase() + 
+                     faker.word.noun().toLowerCase() + 
+                     'set';
+    
     // Schema Set button click
     await page.waitForFunction(() => {
       const buttons = Array.from(document.querySelectorAll('button'));
@@ -23,16 +28,13 @@ async function schemaSet(page) {
     // Fill Schema Set form
     await page.waitForSelector('.modal-focus-remove', { visible: true, timeout: 30000 });
     
-    // Generate schema set name with workspace reference
-    const workspaceName = await page.evaluate(() => {
-      const workspaceTitle = document.querySelector('.css-1hfz00f-treeMenuName');
-      return workspaceTitle ? workspaceTitle.textContent : '';
-    });
-    const schemaSetName = `${workspaceName}SchemaSet`;
-    const schemaDescription = faker.lorem.sentence(); // Using faker to generate random description
-
+    // Generate schema set name using faker
+    const schemaSetName = faker.word.adjective().toLowerCase() + 
+                         faker.word.noun().toLowerCase() + 
+                         'set';
+    
     await page.type('#schemaSetName', schemaSetName, { delay: 100 });
-    await page.type('#schemaSetDescription', schemaDescription, { delay: 100 });
+    await page.type('#schemaSetDescription', faker.lorem.sentence(), { delay: 100 });
 
     // Select only DEV environment
     await page.click('#env-0'); // DEV environment checkbox
@@ -50,9 +52,12 @@ async function schemaSet(page) {
       if (saveBtn) saveBtn.click();
     });
     await page.waitForTimeout(3000);
-    console.log('✅ Schema Set created successfully');
+    console.log('Test Passed: Schema Set Creation');
+    
+    // Return the created schema set name for use in schema creation
+    return schemaSetName;
   } catch (error) {
-    console.error('Schema Set creation failed:', error.message);
+    console.error('Test Failed: Schema Set Creation -', error.message);
     throw error;
   }
 }
